@@ -25,3 +25,12 @@ val MartfuryGray = Color(0xFFF2F2F2)
 val MartfuryLightGray = Color(0xFFEEEEEE)
 val MartfuryBottomNav = Color(0xFFFFFFFF)
 val MartfuryHeaderYellow = Color(0xFFFFD500)
+
+// Design-specific colors
+val DesignYellow = Color(0xFFFFD700)
+val DesignRed = Color(0xFFFF0000)
+val DesignOrange = Color(0xFFFFA500)
+val DesignLightGray = Color(0xFFE0E0E0)
+val DesignLightPink = Color(0xFFFFB6C1)
+val DesignGray = Color(0xFF808080)
+val DesignGreen = Color(0xFF008000)

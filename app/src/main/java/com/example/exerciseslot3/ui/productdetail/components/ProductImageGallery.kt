@@ -4,6 +4,9 @@ import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.KeyboardArrowLeft
+import androidx.compose.material3.Icon
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
@@ -16,6 +19,7 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.example.exerciseslot3.R
+import com.example.exerciseslot3.ui.theme.DesignYellow
 
 @Composable
 fun ProductImageGallery() {
@@ -25,13 +29,23 @@ fun ProductImageGallery() {
             .background(Color.White)
             .padding(horizontal = 16.dp, vertical = 16.dp)
     ) {
+        // Yellow arrow in top-left
+        Icon(
+            imageVector = Icons.Filled.KeyboardArrowLeft,
+            contentDescription = "Back",
+            tint = DesignYellow,
+            modifier = Modifier
+                .align(Alignment.TopStart)
+                .padding(top = 8.dp, start = 8.dp)
+        )
+
         Image(
             painter = painterResource(id = R.drawable.ic_launcher_foreground),
             contentDescription = "Product Image",
             modifier = Modifier
                 .fillMaxWidth()
-                .height(260.dp)
-                .clip(RoundedCornerShape(12.dp))
+                .height(250.dp)
+                .clip(RoundedCornerShape(topStart = 8.dp, topEnd = 8.dp))
                 .align(Alignment.Center),
             contentScale = ContentScale.Fit
         )
@@ -44,7 +58,7 @@ fun ProductImageGallery() {
                 .background(Color(0x88000000))
                 .padding(horizontal = 8.dp, vertical = 4.dp)
         ) {
-            Text(text = "1/4", color = Color.White, fontSize = 12.sp)
+            Text(text = "1/4", color = Color.White, fontSize = 10.sp)
         }
     }
 }

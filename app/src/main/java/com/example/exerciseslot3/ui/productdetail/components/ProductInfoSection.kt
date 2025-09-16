@@ -9,6 +9,7 @@ import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.FavoriteBorder
 import androidx.compose.material.icons.filled.Share
 import androidx.compose.material.icons.filled.ShoppingCart
+import androidx.compose.material.icons.filled.MoreVert
 import androidx.compose.material3.*
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
@@ -21,20 +22,32 @@ import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.example.exerciseslot3.R
+import com.example.exerciseslot3.ui.theme.DesignLightPink
 
 @Composable
 fun ProductInfoSection() {
     Column(modifier = Modifier.padding(horizontal = 16.dp)) {
-        Text(
-            text = "Headphone Ultra Bass",
-            fontSize = 22.sp,
-            fontWeight = FontWeight.SemiBold,
-            maxLines = 2,
-            overflow = TextOverflow.Ellipsis
-        )
+        // Product Title Section
+        Column(modifier = Modifier.fillMaxWidth()) {
+            Text(
+                text = "Headphone Ultra Bass",
+                fontSize = 18.sp,
+                fontWeight = FontWeight.Bold,
+                maxLines = 2,
+                overflow = TextOverflow.Ellipsis
+            )
+            Spacer(modifier = Modifier.height(1.dp))
+            Box(
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .height(1.dp)
+                    .background(DesignLightPink)
+            )
+        }
 
         Spacer(modifier = Modifier.height(8.dp))
 
+        // Brand and Actions Section
         Row(verticalAlignment = Alignment.CenterVertically) {
             Text(text = "Brand:", color = Color.Gray)
             Spacer(modifier = Modifier.width(6.dp))
@@ -43,30 +56,27 @@ fun ProductInfoSection() {
 
         Spacer(modifier = Modifier.height(8.dp))
 
-        Row(
-            verticalAlignment = Alignment.CenterVertically,
-            horizontalArrangement = Arrangement.SpaceBetween,
-            modifier = Modifier.fillMaxWidth()
-        ) {
-            Row(verticalAlignment = Alignment.CenterVertically) {
-                repeat(4) { index ->
-                    val starColor = if (index < 3) Color(0xFFFFC107) else Color(0xFFBDBDBD)
-                    Box(
-                        modifier = Modifier
-                            .size(14.dp)
-                            .clip(CircleShape)
-                            .background(starColor)
-                    )
-                    Spacer(modifier = Modifier.width(4.dp))
-                }
-                Text(text = "8", color = Color.Gray, fontSize = 13.sp)
-            }
+        Row(horizontalArrangement = Arrangement.spacedBy(10.dp)) {
+            RoundIconButton(icon = Icons.Filled.Share)
+            RoundIconButton(icon = Icons.Filled.FavoriteBorder)
+            RoundIconButton(icon = Icons.Filled.MoreVert)
+        }
 
-            Row(horizontalArrangement = Arrangement.spacedBy(10.dp)) {
-                RoundIconButton(icon = Icons.Filled.ShoppingCart)
-                RoundIconButton(icon = Icons.Filled.FavoriteBorder)
-                RoundIconButton(icon = Icons.Filled.Share)
+        Spacer(modifier = Modifier.height(8.dp))
+
+        // Rating Section
+        Row(verticalAlignment = Alignment.CenterVertically) {
+            repeat(4) { index ->
+                val starColor = Color(0xFFFFC107) // All 4 stars filled
+                Box(
+                    modifier = Modifier
+                        .size(14.dp)
+                        .clip(CircleShape)
+                        .background(starColor)
+                )
+                Spacer(modifier = Modifier.width(4.dp))
             }
+            Text(text = "8", color = Color.Gray, fontSize = 13.sp)
         }
 
         Spacer(modifier = Modifier.height(16.dp))
@@ -74,6 +84,7 @@ fun ProductInfoSection() {
 
         Spacer(modifier = Modifier.height(12.dp))
 
+        // Categories Section
         Row(modifier = Modifier.fillMaxWidth()) {
             Text(text = "Categories:", color = Color.Gray)
             Spacer(modifier = Modifier.width(8.dp))
@@ -82,10 +93,21 @@ fun ProductInfoSection() {
         }
 
         Spacer(modifier = Modifier.height(12.dp))
-        Row {
-            Text(text = "SKU:", color = Color.Gray)
-            Spacer(modifier = Modifier.width(8.dp))
-            Text(text = "LI-139")
+
+        // SKU Section
+        Column(modifier = Modifier.fillMaxWidth()) {
+            Row {
+                Text(text = "SKU:", color = Color.Gray)
+                Spacer(modifier = Modifier.width(8.dp))
+                Text(text = "LI-139")
+            }
+            Spacer(modifier = Modifier.height(2.dp))
+            Box(
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .height(2.dp)
+                    .background(DesignLightPink)
+            )
         }
 
         Spacer(modifier = Modifier.height(16.dp))

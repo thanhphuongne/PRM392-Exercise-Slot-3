@@ -12,8 +12,8 @@ import com.example.exerciseslot3.ui.productdetail.components.ProductInfoSection
 import com.example.exerciseslot3.ui.theme.ExerciseSlot3Theme
 
 @Composable
-fun ProductDetailPage() {
-    Scaffold(topBar = { ProductDetailTopBar() }, bottomBar = { ProductDetailBottomBar() }) { inner ->
+fun ProductDetailPage(onBackClick: () -> Unit) {
+    Scaffold(topBar = { ProductDetailTopBar(onBackClick = onBackClick) }, bottomBar = { ProductDetailBottomBar() }) { inner ->
         Column(modifier = Modifier.fillMaxSize().padding(inner)) {
             ProductImageGallery()
             ProductInfoSection()
@@ -24,7 +24,7 @@ fun ProductDetailPage() {
 @Preview(showBackground = true)
 @Composable
 private fun ProductDetailPreview() {
-    ExerciseSlot3Theme { ProductDetailPage() }
+    ExerciseSlot3Theme { ProductDetailPage(onBackClick = {}) }
 }
 
 

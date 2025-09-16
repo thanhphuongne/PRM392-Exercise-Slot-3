@@ -13,9 +13,10 @@ import com.example.exerciseslot3.ui.home.components.FeaturedCategories
 import com.example.exerciseslot3.ui.home.components.HomeTopBar
 import com.example.exerciseslot3.ui.home.components.MartfuryBottomNavigation
 import com.example.exerciseslot3.ui.home.components.PromotionalBanners
+import com.example.exerciseslot3.ui.home.components.SearchBar
 
 @Composable
-fun HomePage() {
+fun HomePage(onProductClick: () -> Unit) {
     Scaffold(
         topBar = { HomeTopBar() },
         bottomBar = { MartfuryBottomNavigation() }
@@ -26,7 +27,8 @@ fun HomePage() {
                 .padding(inner)
                 .verticalScroll(rememberScrollState())
         ) {
-            PromotionalBanners()
+            SearchBar()
+            PromotionalBanners(onProductClick = onProductClick)
             FeaturedCategories()
             FeaturedBrands()
         }

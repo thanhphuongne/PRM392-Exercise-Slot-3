@@ -1,9 +1,9 @@
 <resources>
     <string name="app_name">martfury</string>
     <string name="search_hint">I\'m shopping for...</string>
-    <string name="fabric_discount">FABRIC RED\nDISCOUNT 20% OFF</string>
-    <string name="iphone_title">iPhone 6+\n32Gb</string>
-    <string name="leather_bags">Unisex\nLeather\nBags</string>
+    <string name="fabric_discount">FABRIC BED</string>
+    <string name="iphone_title">iPhone 6 32GB</string>
+    <string name="leather_bags">Unio Leather</string>
     <string name="featured_categories">Featured Categories</string>
     <string name="electronics">Electronics</string>
     <string name="clothing">Clothing</string>

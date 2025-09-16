@@ -1,4 +1,27 @@
-<?xml version="1.0" encoding="utf-8"?>
-<selector xmlns:android="http://schemas.android.com/apk/res/android">
-
-</selector>
+<!-- res/drawable/ic_bidirectional_arrow.xml -->
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="24dp"
+    android:height="24dp"
+    android:viewportWidth="24"
+    android:viewportHeight="24">
+    <path
+        android:pathData="M4,12h12v-2h-12v2z"
+        android:strokeColor="#757575"
+        android:strokeWidth="2"
+        android:fillColor="@android:color/transparent"/>
+    <path
+        android:pathData="M4,12v2h12v-2z"
+        android:strokeColor="#757575"
+        android:strokeWidth="2"
+        android:fillColor="@android:color/transparent"/>
+    <path
+        android:pathData="M12,4v12h2v-12h-2z"
+        android:strokeColor="#757575"
+        android:strokeWidth="2"
+        android:fillColor="@android:color/transparent"/>
+    <path
+        android:pathData="M12,4h-2v12h2z"
+        android:strokeColor="#757575"
+        android:strokeWidth="2"
+        android:fillColor="@android:color/transparent"/>
+</vector>

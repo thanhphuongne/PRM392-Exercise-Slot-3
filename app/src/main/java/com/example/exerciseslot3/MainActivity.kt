@@ -4,11 +4,11 @@ import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
-import androidx.compose.material3.Surface
 import androidx.compose.runtime.Composable
-import androidx.compose.ui.Modifier
-import androidx.compose.ui.res.colorResource
 import androidx.compose.ui.tooling.preview.Preview
+import androidx.navigation.compose.NavHost
+import androidx.navigation.compose.composable
+import androidx.navigation.compose.rememberNavController
 import com.example.exerciseslot3.ui.home.HomePage
 import com.example.exerciseslot3.ui.productdetail.ProductDetailPage
 import com.example.exerciseslot3.ui.theme.ExerciseSlot3Theme
@@ -19,10 +19,16 @@ class MainActivity : ComponentActivity() {
         enableEdgeToEdge()
         setContent {
             ExerciseSlot3Theme {
-                Surface(
-                    modifier = Modifier,
-                    color = colorResource(id = R.color.martfury_background)
-                ) { ProductDetailPage() }
+                val navController = rememberNavController()
+
+                NavHost(navController = navController, startDestination = "home") {
+                    composable("home") {
+                        HomePage(onProductClick = { navController.navigate("product_detail") })
+                    }
+                    composable("product_detail") {
+                        ProductDetailPage(onBackClick = { navController.popBackStack() })
+                    }
+                }
             }
         }
     }
@@ -31,5 +37,5 @@ class MainActivity : ComponentActivity() {
 @Preview(showBackground = true)
 @Composable
 fun HomePreview() {
-    ExerciseSlot3Theme { ProductDetailPage() }
+    ExerciseSlot3Theme { HomePage(onProductClick = {}) }
 }

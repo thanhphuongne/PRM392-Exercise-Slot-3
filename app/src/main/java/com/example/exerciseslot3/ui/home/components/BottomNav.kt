@@ -6,12 +6,15 @@ import androidx.compose.material3.*
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.unit.sp
 import com.example.exerciseslot3.R
+import com.example.exerciseslot3.ui.theme.DesignYellow
+import com.example.exerciseslot3.ui.theme.DesignRed
 
 @Composable
 fun MartfuryBottomNavigation() {
     NavigationBar(
-        containerColor = Color.White,
+        containerColor = DesignYellow,
         contentColor = Color.Black
     ) {
         val items = listOf(
@@ -28,8 +31,8 @@ fun MartfuryBottomNavigation() {
                     if (index == 3) {
                         BadgedBox(
                             badge = {
-                                Badge(containerColor = MaterialTheme.colorScheme.error) {
-                                    Text("1")
+                                Badge(containerColor = DesignRed) {
+                                    Text("3", color = Color.White, fontSize = 10.sp)
                                 }
                             }
                         ) {
@@ -43,8 +46,8 @@ fun MartfuryBottomNavigation() {
                 selected = selected,
                 onClick = { },
                 colors = NavigationBarItemDefaults.colors(
-                    selectedIconColor = MaterialTheme.colorScheme.primary,
-                    selectedTextColor = MaterialTheme.colorScheme.primary,
+                    selectedIconColor = Color.Black,
+                    selectedTextColor = Color.Black,
                     indicatorColor = Color.Transparent,
                     unselectedIconColor = Color.Gray,
                     unselectedTextColor = Color.Gray

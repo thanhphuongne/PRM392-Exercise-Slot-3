@@ -2,6 +2,7 @@ package com.example.exerciseslot3.ui.home.components
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyRow
 import androidx.compose.foundation.shape.CircleShape
@@ -22,7 +23,7 @@ import androidx.compose.ui.unit.sp
 import com.example.exerciseslot3.R
 
 @Composable
-fun PromotionalBanners() {
+fun PromotionalBanners(onProductClick: () -> Unit) {
     LazyRow(
         contentPadding = PaddingValues(horizontal = 16.dp, vertical = 8.dp),
         horizontalArrangement = Arrangement.spacedBy(16.dp)
@@ -30,12 +31,15 @@ fun PromotionalBanners() {
         item {
             BannerCard(
                 title = stringResource(id = R.string.fabric_discount),
-                price = "$279.00",
+                price = "$219.05",
                 backgroundColor = colorResource(id = R.color.martfury_discount_red),
                 textColor = Color.White,
                 buttonColor = Color.White,
                 buttonTextColor = Color.Black,
-                imageResId = R.drawable.ic_launcher_foreground
+                hasDiscount = true,
+                discountPercent = "25%",
+                imageResId = R.drawable.ic_launcher_foreground,
+                onClick = onProductClick
             )
         }
 
@@ -45,8 +49,9 @@ fun PromotionalBanners() {
                 backgroundColor = Color.White,
                 textColor = Color.Black,
                 hasDiscount = true,
-                discountPercent = "16%",
-                imageResId = R.drawable.ic_launcher_foreground
+                discountPercent = "40%",
+                imageResId = R.drawable.ic_launcher_foreground,
+                onClick = onProductClick
             )
         }
 
@@ -56,8 +61,9 @@ fun PromotionalBanners() {
                 backgroundColor = Color.White,
                 textColor = Color.Black,
                 hasDiscount = true,
-                discountPercent = "25%",
-                imageResId = R.drawable.ic_launcher_foreground
+                discountPercent = "20%",
+                imageResId = R.drawable.ic_launcher_foreground,
+                onClick = onProductClick
             )
         }
     }
@@ -73,7 +79,8 @@ fun BannerCard(
     buttonTextColor: Color = Color.Black,
     hasDiscount: Boolean = false,
     discountPercent: String = "",
-    imageResId: Int
+    imageResId: Int,
+    onClick: () -> Unit
 ) {
     Card(
         shape = RoundedCornerShape(8.dp),
@@ -81,6 +88,7 @@ fun BannerCard(
         modifier = Modifier
             .width(280.dp)
             .height(120.dp)
+            .clickable(onClick = onClick)
     ) {
         Row(modifier = Modifier.fillMaxSize()) {
             Column(

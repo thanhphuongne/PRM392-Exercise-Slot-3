@@ -1,6 +1,7 @@
 package com.example.exerciseslot3.ui.home.components
 
 import androidx.compose.foundation.background
+import androidx.compose.foundation.border
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.text.BasicTextField
@@ -16,6 +17,7 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import com.example.exerciseslot3.R
+import com.example.exerciseslot3.ui.theme.DesignLightGray
 
 @Composable
 fun SearchBar() {
@@ -23,8 +25,9 @@ fun SearchBar() {
         modifier = Modifier
             .fillMaxWidth()
             .padding(horizontal = 16.dp, vertical = 10.dp)
-            .clip(RoundedCornerShape(12.dp))
-            .background(Color.White),
+            .clip(RoundedCornerShape(8.dp))
+            .background(Color.White)
+            .border(1.dp, DesignLightGray, RoundedCornerShape(8.dp)),
         verticalAlignment = Alignment.CenterVertically
     ) {
         var query by remember { mutableStateOf("") }
@@ -36,7 +39,7 @@ fun SearchBar() {
             if (query.isEmpty()) {
                 Text(
                     text = stringResource(id = R.string.search_hint),
-                    color = Color(0x99000000)
+                    color = Color.Gray
                 )
             }
             BasicTextField(
@@ -47,19 +50,12 @@ fun SearchBar() {
             )
         }
 
-        Box(
-            contentAlignment = Alignment.Center,
-            modifier = Modifier
-                .width(56.dp)
-                .height(48.dp)
-                .background(Color.Black)
-        ) {
-            Icon(
-                imageVector = Icons.Filled.Search,
-                contentDescription = "Search",
-                tint = Color.White
-            )
-        }
+        Icon(
+            imageVector = Icons.Filled.Search,
+            contentDescription = "Search",
+            tint = Color.Black,
+            modifier = Modifier.padding(end = 12.dp)
+        )
     }
 }
 

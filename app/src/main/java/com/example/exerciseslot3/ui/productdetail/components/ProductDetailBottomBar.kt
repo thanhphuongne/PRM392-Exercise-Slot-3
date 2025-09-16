@@ -12,8 +12,10 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.colorResource
+import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import com.example.exerciseslot3.R
+import com.example.exerciseslot3.ui.theme.DesignOrange
 
 @Composable
 fun ProductDetailBottomBar() {
@@ -35,26 +37,28 @@ fun ProductDetailBottomBar() {
                     .fillMaxWidth()
                     .padding(16.dp)
             ) {
-                OutlinedButton(
+                Button(
                     onClick = {},
                     shape = RoundedCornerShape(10.dp),
+                    colors = ButtonDefaults.buttonColors(containerColor = Color.LightGray),
                     modifier = Modifier.weight(1f)
                 ) {
                     Icon(
                         imageVector = Icons.Filled.ShoppingCart,
-                        contentDescription = null
+                        contentDescription = null,
+                        tint = Color.Black
                     )
                     Spacer(modifier = Modifier.width(8.dp))
-                    Text(text = "Add to Cart")
+                    Text(text = "Add to Cart", color = Color.Black)
                 }
 
                 Button(
                     onClick = {},
                     shape = RoundedCornerShape(10.dp),
-                    colors = ButtonDefaults.buttonColors(containerColor = colorResource(id = R.color.martfury_primary)),
+                    colors = ButtonDefaults.buttonColors(containerColor = DesignOrange),
                     modifier = Modifier.weight(1f)
                 ) {
-                    Text(text = "Buy Now", color = Color.Black)
+                    Text(text = "Buy Now", color = Color.White, fontWeight = androidx.compose.ui.text.font.FontWeight.Bold)
                 }
             }
         }

@@ -1,5 +1,6 @@
 package com.example.exerciseslot3.ui.home.components
 
+import androidx.compose.foundation.background
 import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyRow
@@ -15,10 +16,19 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.example.exerciseslot3.R
+import com.example.exerciseslot3.ui.theme.DesignYellow
 
 @Composable
 fun FeaturedBrands() {
     Column(modifier = Modifier.padding(start = 16.dp, end = 16.dp, top = 24.dp)) {
+        // Yellow accent bar
+        Box(
+            modifier = Modifier
+                .fillMaxWidth()
+                .height(2.dp)
+                .background(DesignYellow)
+        )
+
         Text(
             text = stringResource(id = R.string.featured_brands),
             fontWeight = FontWeight.Bold,
@@ -28,7 +38,7 @@ fun FeaturedBrands() {
         Spacer(modifier = Modifier.height(16.dp))
 
         val brands = listOf(
-            "Hostlare", "Patel Pinch", "Panax Pharma"
+            "LaHire", "Patel Psych", "Panax", "Pharma"
         )
 
         LazyRow(
